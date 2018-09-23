@@ -3,7 +3,7 @@ Search and connect all the IP created by different sensors in the current LAN.
 
 This is a assignment from Measurement and Control software design practice in Automation institute, BUPT.
 
-##Component
+## Component
 
 The sensor monitor system is composed in three parts: sensor server, moniter system and database system.
 
