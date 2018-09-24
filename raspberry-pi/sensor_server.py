@@ -283,6 +283,7 @@ def server_Temp_Humid_sensor(host_ip="192.168.1.108", host_port=50):
                     stop_thread(thread_get_temp_humid)
                 else:
                     message = READ_TEMP_HUMID
+                    message=str(get_time()+message[20:])
                 socket_con.send((message).encode())  # 发送数据
 
                 time.sleep(1)
@@ -290,6 +291,7 @@ def server_Temp_Humid_sensor(host_ip="192.168.1.108", host_port=50):
                     message = (get_time() + "/0/0/0x01")
                 else:
                     message = READ_TEMP_HUMID
+                    message=str(get_time()+message[20:])
                 socket_con.send((message).encode())  # 发送数据
                 # 创建线程
                 thread_get_temp_humid = threading.Thread(target=get_temp_humid,
