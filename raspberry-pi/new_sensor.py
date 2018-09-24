@@ -122,7 +122,7 @@ def main():
 
     # 创建线程并添加进线程列表
     thread_Temp_sensor = threading.Thread(target=server_Temp_sensor,
-                                                args=())
+                                                args=("192.168.1.110",50))
     threads.append(thread_Temp_sensor)
 
     # 开始所有线程

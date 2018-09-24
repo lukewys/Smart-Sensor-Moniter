@@ -313,16 +313,16 @@ def main():
 
     # 创建线程并添加进线程列表
     thread_CPU_sensor = threading.Thread(target=server_CPU_sensor,
-                                         args=())
+                                         args=("192.168.1.105",50))
     threads.append(thread_CPU_sensor)
     thread_Distance_sensor = threading.Thread(target=server_Distance_sensor,
-                                              args=())
+                                              args=("192.168.1.106",50))
     threads.append(thread_Distance_sensor)
     thread_Infrared_sensor = threading.Thread(target=server_Infrared_sensor,
-                                              args=())
+                                              args=("192.168.1.107",50))
     threads.append(thread_Infrared_sensor)
     thread_Temp_Humid_sensor = threading.Thread(target=server_Temp_Humid_sensor,
-                                                args=())
+                                                args=("192.168.1.108",50))
     threads.append(thread_Temp_Humid_sensor)
 
     # 开始所有线程
