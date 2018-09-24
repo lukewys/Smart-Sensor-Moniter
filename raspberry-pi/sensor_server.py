@@ -98,9 +98,9 @@ def detect_people(People_Pin=21):
     :return:数据字符串
     """
     if GPIO.input(People_Pin):
-        return (get_time() + "/" + "True" + "/" + "00/" + "0x00")
+        return (get_time() + "/" + "1" + "/" + "00/" + "0x00")
     else:
-        return (get_time() + "/" + "False" + "/" + "00/" + "0x00")
+        return (get_time() + "/" + "0" + "/" + "00/" + "0x00")
 
 
 def get_temp_humid():
