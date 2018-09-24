@@ -270,13 +270,13 @@ def server_Temp_Humid_sensor(host_ip="192.168.1.108", host_port=50):
         print(get_time() + name +
               ": Connection accepted from %s." % client_ip)
         socket_con.send(("Temp Humid Sensor:Time/Temp/Humid/ErrorCode").encode())  # 数据说明
+        thread_get_temp_humid = threading.Thread(target=get_temp_humid,
+                                                 args=())
+        thread_get_temp_humid.start()
+        time.sleep(2)
         while (1):
             try:
-                # 创建线程
-                thread_get_temp_humid = threading.Thread(target=get_temp_humid,
-                                                   args=())
-                thread_get_temp_humid.start()
-                time.sleep(2)
+                time.sleep(1)
                 # 判断超时
                 if READ_TEMP_HUMID == -1:
                     message = (get_time() + "/0/0/0x01")
@@ -284,6 +284,17 @@ def server_Temp_Humid_sensor(host_ip="192.168.1.108", host_port=50):
                 else:
                     message = READ_TEMP_HUMID
                 socket_con.send((message).encode())  # 发送数据
+
+                time.sleep(1)
+                if READ_TEMP_HUMID == -1:
+                    message = (get_time() + "/0/0/0x01")
+                else:
+                    message = READ_TEMP_HUMID
+                socket_con.send((message).encode())  # 发送数据
+                # 创建线程
+                thread_get_temp_humid = threading.Thread(target=get_temp_humid,
+                                                         args=())
+                thread_get_temp_humid.start()
             # 处理异常
             except(BrokenPipeError):
                 print(get_time()
