@@ -12,4 +12,7 @@ The sensor monitor system is composed in three parts: sensor server, moniter sys
 
 The sensor server is implimented by me, while other parts is implimented by Yang Nie. 
 
+## Sensor Server
+![Image text](https://github.com/lukewys/Smart-Sensor-Moniter/blob/master/sensor_pi.jpg)
+
 The sensor server is build on raspberry-pi, and the sensors I used are DHT11, HC-SR04, HC-SR501, DS18B20.
